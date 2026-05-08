@@ -1,20 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggles = document.querySelectorAll('.theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
 
     document.documentElement.setAttribute('data-theme', currentTheme);
-    updateToggleIcon(currentTheme);
+    updateToggleIcons(currentTheme);
 
-    themeToggle.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme');
-        let newTheme = theme === 'light' ? 'dark' : 'light';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateToggleIcon(newTheme);
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            let newTheme = theme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleIcons(newTheme);
+        });
     });
 
-    function updateToggleIcon(theme) {
-        themeToggle.innerHTML = theme === 'light' ? '🌙' : '☀️';
+    function updateToggleIcons(theme) {
+        themeToggles.forEach(toggle => {
+            toggle.innerHTML = theme === 'light' ? '🌙' : '☀️';
+        });
     }
 });

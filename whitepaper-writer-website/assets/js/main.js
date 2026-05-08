@@ -28,5 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (link.getAttribute('href') === currentPath) {
             link.classList.add('active');
         }
+
+        // Mobile Dropdown Toggle
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992 && link.nextElementSibling?.classList.contains('dropdown')) {
+                e.preventDefault();
+                const dropdown = link.nextElementSibling;
+                dropdown.classList.toggle('mobile-open');
+            }
+        });
     });
 });
