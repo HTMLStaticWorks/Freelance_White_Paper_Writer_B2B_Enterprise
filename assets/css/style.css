@@ -316,13 +316,14 @@ img {
     flex-wrap: wrap;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .hero-btns {
         flex-direction: column;
         gap: 10px;
     }
     .hero-btns .btn {
         width: 100%;
+        max-width: 100%;
     }
 }
 
