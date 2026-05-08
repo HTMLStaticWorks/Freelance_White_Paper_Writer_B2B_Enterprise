@@ -120,6 +120,7 @@ img {
 
 .justify-content-center { justify-content: center !important; }
 .align-items-center { align-items: center !important; }
+.flex-wrap { flex-wrap: wrap !important; }
 .gap-3 { gap: 1rem !important; }
 .gap-4 { gap: 1.5rem !important; }
 
