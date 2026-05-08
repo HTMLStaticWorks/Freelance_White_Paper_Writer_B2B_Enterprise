@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Dashboard | Enterprise Research Portal</title>
+    <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .dashboard-sidebar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            height: fit-content;
+        }
+        
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .sidebar-link {
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .sidebar-link:hover, .sidebar-link.active {
+            background: var(--background);
+            color: var(--accent);
+        }
+        
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            border-color: var(--accent);
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-draft { background: #FEF3C7; color: #92400E; }
+        .status-review { background: #DBEAFE; color: #1E40AF; }
+        .status-final { background: #D1FAE5; color: #065F46; }
+        
+        .upload-zone {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            text-center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .upload-zone:hover {
+            border-color: var(--accent);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .version-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .version-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .version-item:last-child { border-bottom: none; }
+
+        @media (max-width: 992px) {
+            .dashboard-container { grid-template-columns: 1fr; }
+            
+            .dashboard-sidebar {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                z-index: 2000;
+                transition: var(--transition);
+                border-radius: 0;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                margin-top: 0;
+            }
+            
+            .dashboard-sidebar.active {
+                right: 0;
+            }
+
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 1999;
+                display: none;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">WP<span>Consult</span></a>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                    <button id="rtl-toggle" class="rtl-toggle" title="Switch to Right-to-Left">RTL</button>
+                    <button id="sidebar-toggle" class="mobile-toggle d-lg-none">☰</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="container" style="padding-top: 100px;">
+        <header class="mb-5">
+            <h1 class="display-4">Marketing Research Portal</h1>
+            <p class="text-secondary">Manage your white paper projects, research data, and draft reviews.</p>
+        </header>
+
+        <div class="dashboard-container">
+            <aside class="dashboard-sidebar">
+                <nav class="sidebar-menu">
+                    <a href="#" class="sidebar-link active">Active Projects</a>
+                    <a href="#" class="sidebar-link">Upload Research</a>
+                    <a href="#" class="sidebar-link">Outline Reviews</a>
+                    <a href="#" class="sidebar-link">Draft History</a>
+                    <a href="#" class="sidebar-link">Final Assets</a>
+                    <hr style="margin: 15px 0; border: none; border-top: 1px solid var(--border);">
+                    <a href="#" class="sidebar-link">Support</a>
+                    <a href="#" class="sidebar-link">Settings</a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main">
+                <!-- Upload Section -->
+                <section class="card mb-5">
+                    <h3 class="mb-4">Submit New Research Data</h3>
+                    <div class="upload-zone text-center">
+                        <div class="h1 mb-3">📁</div>
+                        <p class="fw-bold mb-1">Drag & drop technical documentation or datasets</p>
+                        <p class="text-secondary small mb-4">Supported formats: PDF, DOCX, XLSX, JSON (Max 50MB)</p>
+                        <button class="btn btn-primary">Select Files</button>
+                    </div>
+                </section>
+
+                <!-- Active Projects -->
+                <h3 class="mb-4">Recent Projects</h3>
+                <div class="project-card">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge status-review mb-2 d-inline-block">In Review</span>
+                            <h4>Zero Trust Architecture White Paper</h4>
+                            <p class="text-secondary small">Last update: 2 hours ago by James Wilson</p>
+                        </div>
+                        <button class="btn btn-outline py-2 px-3">View Outline</button>
+                    </div>
+                    <div class="progress-bar-container bg-light rounded overflow-hidden" style="height: 8px;">
+                        <div class="bg-accent h-100" style="width: 65%;"></div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2">
+                        <span class="small text-secondary">Phase: Technical Review</span>
+                        <span class="small fw-bold">65% Complete</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge status-final mb-2 d-inline-block">Finalized</span>
+                            <h4>State of Fintech Regulation 2026</h4>
+                            <p class="text-secondary small">Finalized: May 05, 2026</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline py-2 px-3">View Versions</button>
+                            <button class="btn btn-primary py-2 px-3">Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Versions & Citations -->
+                <section class="row mt-5">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <h4>Draft Versions</h4>
+                            <div class="version-list mt-3">
+                                <div class="version-item">
+                                    <span>Draft v2.1 - Technical Edits</span>
+                                    <a href="#" class="text-accent small fw-bold">Review →</a>
+                                </div>
+                                <div class="version-item">
+                                    <span>Draft v2.0 - Full Content</span>
+                                    <a href="#" class="text-accent small fw-bold">Archived</a>
+                                </div>
+                                <div class="version-item">
+                                    <span>Draft v1.2 - Peer Review</span>
+                                    <a href="#" class="text-accent small fw-bold">Archived</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <h4>Citations & Sources</h4>
+                            <p class="text-secondary small mb-4">Tracking 14 verified research sources for the current project.</p>
+                            <ul class="footer-links">
+                                <li class="mb-2">✓ Gartner: Zero Trust Framework 2025</li>
+                                <li class="mb-2">✓ NIST Special Publication 800-207</li>
+                                <li class="mb-2">✓ Internal Dataset: Threat Vectors Q1</li>
+                            </ul>
+                            <button class="btn btn-outline w-100 mt-4">Manage Citations</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div class="text-center py-4 border-top">
+        <p class="text-secondary small">&copy; 2026 WPWriter Consulting. All rights reserved.</p>
+    </div>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/rtl-toggle.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const dashboardSidebar = document.querySelector('.dashboard-sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                dashboardSidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+            });
+        }
+
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', () => {
+                dashboardSidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>
