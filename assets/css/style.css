@@ -50,7 +50,14 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -129,6 +136,28 @@ img {
 .bg-light { background-color: var(--background) !important; }
 .bg-surface { background-color: var(--surface) !important; }
 .bg-primary { background-color: var(--primary) !important; }
+
+/* Responsive Typography Fixes */
+@media (max-width: 768px) {
+    .display-1 { font-size: 3rem !important; }
+    .display-2 { font-size: 2.5rem !important; }
+    .display-3 { font-size: 2.2rem !important; }
+    .display-4 { font-size: 2rem !important; }
+    
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.6rem !important; }
+    h3 { font-size: 1.4rem !important; }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+}
 
 [data-theme="dark"] .text-secondary {
     color: var(--secondary) !important;
@@ -933,6 +962,17 @@ textarea.form-control {
 
     .nav-actions {
         gap: 10px;
+    }
+
+    /* Global fix for mobile navigation overflow */
+    .nav-actions .theme-toggle,
+    .nav-actions .rtl-toggle,
+    .nav-actions .btn-primary {
+        display: none !important;
+    }
+
+    .nav-actions .mobile-toggle {
+        display: flex !important;
     }
 
     .dropdown {
