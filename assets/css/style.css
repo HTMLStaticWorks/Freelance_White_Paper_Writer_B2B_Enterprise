@@ -539,6 +539,18 @@ textarea.form-control {
     }
     .nav-links.active { left: 0; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
+
+    .dropdown.mobile-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 20px;
+        background: transparent;
+        display: block !important;
+    }
 }
 
 @media (max-width: 576px) {
