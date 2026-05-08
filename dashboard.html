@@ -166,11 +166,11 @@
         <div class="dashboard-container">
             <aside class="dashboard-sidebar">
                 <nav class="sidebar-menu">
-                    <a href="#" class="sidebar-link active">Active Projects</a>
-                    <a href="#" class="sidebar-link">Upload Research</a>
-                    <a href="#" class="sidebar-link">Outline Reviews</a>
-                    <a href="#" class="sidebar-link">Draft History</a>
-                    <a href="#" class="sidebar-link">Final Assets</a>
+                    <a href="#projects" class="sidebar-link active">Active Projects</a>
+                    <a href="#upload" class="sidebar-link">Upload Research</a>
+                    <a href="#outlines" class="sidebar-link">Outline Reviews</a>
+                    <a href="#history" class="sidebar-link">Draft History</a>
+                    <a href="#assets" class="sidebar-link">Final Assets</a>
                     <hr style="margin: 15px 0; border: none; border-top: 1px solid var(--border);">
                     <a href="index.html" class="sidebar-link logout-link" style="color: #ef4444 !important; margin-top: 5px;">Logout</a>
                 </nav>
@@ -178,7 +178,7 @@
 
             <main class="dashboard-main">
                 <!-- Upload Section -->
-                <section class="card mb-5">
+                <section id="upload" class="card mb-5">
                     <h3 class="mb-4">Submit New Research Data</h3>
                     <div class="upload-zone text-center">
                         <div class="h1 mb-3">📁</div>
@@ -189,7 +189,8 @@
                 </section>
 
                 <!-- Active Projects -->
-                <h3 class="mb-4">Recent Projects</h3>
+                <div id="projects">
+                    <h3 class="mb-4">Recent Projects</h3>
                 <div class="project-card">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
@@ -223,7 +224,7 @@
                 </div>
 
                 <!-- Versions & Citations -->
-                <section class="row mt-5">
+                <section id="history" class="row mt-5">
                     <div class="col-md-6">
                         <div class="card h-100">
                             <h4>Draft Versions</h4>
@@ -253,6 +254,60 @@
                                 <li class="mb-2">✓ Internal Dataset: Threat Vectors Q1</li>
                             </ul>
                             <button class="btn btn-outline w-100 mt-4">Manage Citations</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Outline Reviews -->
+                <section id="outlines" class="mt-5">
+                    <h3 class="mb-4">Pending Outline Reviews</h3>
+                    <div class="card mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">AI Ethics in Enterprise SaaS</h5>
+                                <p class="text-secondary small mb-0">Submitted: May 07, 2026 • Review Due: 24h</p>
+                            </div>
+                            <a href="#" class="btn btn-outline small">Start Review</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">The Future of Edge Computing</h5>
+                                <p class="text-secondary small mb-0">Submitted: May 06, 2026 • Status: Pending SME Input</p>
+                            </div>
+                            <a href="#" class="btn btn-outline small">View Feedback</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Final Assets -->
+                <section id="assets" class="mt-5 mb-5">
+                    <h3 class="mb-4">Final Delivered Assets</h3>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card text-center py-4 h-100">
+                                <div class="h2 mb-3">📄</div>
+                                <h6 class="mb-1">Cloud Security 2025</h6>
+                                <p class="text-secondary smaller mb-3">PDF • 4.2 MB • Finalized</p>
+                                <button class="btn btn-outline small w-100">Download</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center py-4 h-100">
+                                <div class="h2 mb-3">📊</div>
+                                <h6 class="mb-1">Fintech Data Set</h6>
+                                <p class="text-secondary smaller mb-3">XLSX • 1.8 MB • Finalized</p>
+                                <button class="btn btn-outline small w-100">Download</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center py-4 h-100">
+                                <div class="h2 mb-3">🖋️</div>
+                                <h6 class="mb-1">CEO Vision Paper</h6>
+                                <p class="text-secondary smaller mb-3">DOCX • 1.1 MB • Finalized</p>
+                                <button class="btn btn-outline small w-100">Download</button>
+                            </div>
                         </div>
                     </div>
                 </section>
