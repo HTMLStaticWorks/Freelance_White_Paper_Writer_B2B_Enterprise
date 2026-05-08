@@ -111,6 +111,11 @@ img {
     .d-md-none { display: none !important; }
 }
 
+.justify-content-center { justify-content: center !important; }
+.align-items-center { align-items: center !important; }
+.gap-3 { gap: 1rem !important; }
+.gap-4 { gap: 1.5rem !important; }
+
 .text-center {
     text-align: center;
 }
@@ -303,6 +308,22 @@ img {
 
 .btn-outline:hover {
     background: var(--border);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 576px) {
+    .hero-btns {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-btns .btn {
+        width: 100%;
+    }
 }
 
 /* Social Auth Buttons */
