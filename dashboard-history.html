@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing Dashboard | Enterprise Research Portal</title>
+    <title>Draft History | Enterprise Research Portal</title>
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -17,10 +17,10 @@
             <a href="index.html" class="logo sidebar-logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 8px;"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 13H8" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17H8" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 9H8" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>WP<span>Consult</span></a>
             
             <nav class="sidebar-nav">
-                <a href="dashboard.html" class="sidebar-link active">Active Projects</a>
+                <a href="dashboard.html" class="sidebar-link">Active Projects</a>
                 <a href="dashboard-upload.html" class="sidebar-link">Upload Research</a>
                 <a href="dashboard-outlines.html" class="sidebar-link">Outline Reviews</a>
-                <a href="dashboard-history.html" class="sidebar-link">Draft History</a>
+                <a href="dashboard-history.html" class="sidebar-link active">Draft History</a>
                 <a href="dashboard-assets.html" class="sidebar-link">Final Assets</a>
             </nav>
 
@@ -50,41 +50,48 @@
                 </div>
             </header>
 
-            <!-- Active Projects -->
-            <div id="projects">
-                <h3 class="mb-4">Recent Projects</h3>
-                <div class="project-card">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <div>
-                            <span class="status-badge status-review mb-2 d-inline-block">In Review</span>
-                            <h4>Zero Trust Architecture White Paper</h4>
-                            <p class="text-secondary small">Last update: 2 hours ago by James Wilson</p>
+            <section id="history" class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h3 class="mb-4">Draft Versions & History</h3>
+                        <div class="version-list mt-3">
+                            <div class="version-item">
+                                <span>Draft v2.1 - Technical Edits</span>
+                                <div class="d-flex gap-3 align-items-center">
+                                    <span class="small text-secondary">May 08, 2026</span>
+                                    <a href="#" class="text-accent small fw-bold">Review →</a>
+                                </div>
+                            </div>
+                            <div class="version-item">
+                                <span>Draft v2.0 - Full Content</span>
+                                <div class="d-flex gap-3 align-items-center">
+                                    <span class="small text-secondary">May 05, 2026</span>
+                                    <a href="#" class="text-accent small fw-bold">Archived</a>
+                                </div>
+                            </div>
+                            <div class="version-item">
+                                <span>Draft v1.2 - Peer Review</span>
+                                <div class="d-flex gap-3 align-items-center">
+                                    <span class="small text-secondary">April 28, 2026</span>
+                                    <a href="#" class="text-accent small fw-bold">Archived</a>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-outline py-2 px-3">View Outline</button>
                     </div>
-                    <div class="progress-bar-container bg-light rounded overflow-hidden" style="height: 8px;">
-                        <div class="bg-accent h-100" style="width: 65%;"></div>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <span class="small text-secondary">Phase: Technical Review</span>
-                        <span class="small fw-bold">65% Complete</span>
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <div>
-                            <span class="status-badge status-final mb-2 d-inline-block">Finalized</span>
-                            <h4>State of Fintech Regulation 2026</h4>
-                            <p class="text-secondary small">Finalized: May 05, 2026</p>
-                        </div>
-                        <div class="d-flex gap-2 flex-wrap">
-                            <button class="btn btn-outline py-2 px-3">View Versions</button>
-                            <button class="btn btn-primary py-2 px-3">Download PDF</button>
-                        </div>
+                    <div class="card mt-5">
+                        <h4>Citations & Sources</h4>
+                        <p class="text-secondary small mb-4">Tracking 14 verified research sources for the current project.</p>
+                        <ul class="footer-links">
+                            <li class="mb-2">✓ Gartner: Zero Trust Framework 2025</li>
+                            <li class="mb-2">✓ NIST Special Publication 800-207</li>
+                            <li class="mb-2">✓ Internal Dataset: Threat Vectors Q1</li>
+                            <li class="mb-2">✓ Forrester: Secure Access Service Edge Report</li>
+                        </ul>
+                        <button class="btn btn-outline w-100 mt-4" style="max-width: 200px;">Manage Citations</button>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <div class="text-center py-4 mt-5 border-top">
                 <p class="text-secondary small">&copy; 2026 WPWriter Consulting. All rights reserved.</p>
