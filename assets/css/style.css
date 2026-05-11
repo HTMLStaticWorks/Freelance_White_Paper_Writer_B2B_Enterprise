@@ -907,6 +907,17 @@ textarea.form-control {
     height: 100%;
     background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
     background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-btns {
+    position: relative;
+    z-index: 10;
 }
 
 .hero-2 h1 span {
@@ -1899,12 +1910,20 @@ textarea.form-control {
     }
 }
 
-/* Home 2 Hover Effects */
+/* Home 2 Hero Button Hover Effects */
+.hero-2 .btn-primary:hover {
+    background: #FFFFFF !important;
+    color: var(--accent) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+}
+
 .hero-2 .btn-outline:hover {
     background: #FFFFFF !important;
     color: #0F172A !important;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: #FFFFFF !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
 }
 
 .logo-wrapper {
