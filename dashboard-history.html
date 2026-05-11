@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
-<body>
+<body class="dashboard-page">
     <div class="dashboard-wrapper">
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
         
@@ -25,9 +25,9 @@
             </nav>
 
             <div class="sidebar-footer">
-                <div class="sidebar-actions">
-                    <button id="rtl-toggle" class="rtl-toggle" title="Switch to Right-to-Left">RTL</button>
-                    <button id="theme-toggle" class="theme-toggle">🌙 Mode</button>
+                <div class="sidebar-actions d-lg-none">
+                    <button id="rtl-toggle-mobile" class="rtl-toggle" title="Switch to Right-to-Left">RTL</button>
+                    <button id="theme-toggle-mobile" class="theme-toggle">🌙 Mode</button>
                 </div>
                 <a href="index.html" class="logout-btn">SIGN OUT</a>
             </div>
@@ -45,8 +45,12 @@
                     <h1>Marketing Research Portal</h1>
                     <p class="text-secondary">Manage your white paper projects, research data, and draft reviews.</p>
                 </div>
-                <div class="topbar-profile">
-                    <div class="avatar" style="width: 45px; height: 45px; font-size: 1rem; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">AD</div>
+                <div class="dashboard-top-actions d-flex align-items-center gap-3">
+                    <button class="theme-toggle">🌙</button>
+                    <button class="rtl-toggle" title="Switch to Right-to-Left">RTL</button>
+                    <div class="topbar-profile">
+                        <div class="avatar" style="width: 45px; height: 45px; font-size: 1rem; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">AD</div>
+                    </div>
                 </div>
             </header>
 

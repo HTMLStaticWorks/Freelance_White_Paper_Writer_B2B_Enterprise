@@ -1804,6 +1804,33 @@ textarea.form-control {
 }
 
 
+/* Dashboard Top Actions */
+.dashboard-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dashboard-top-actions button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.dashboard-top-actions button:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
 /* Dashboard Topbar */
 .dashboard-topbar {
     display: flex;
@@ -1870,4 +1897,87 @@ textarea.form-control {
         width: 38px !important;
         height: 38px !important;
     }
+}
+
+/* Home 2 Hover Effects */
+.hero-2 .btn-outline:hover {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.logo-wrapper {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-wrapper:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.logo-wrapper h3 {
+    transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover .logo-splunk { color: #ED1C24; opacity: 1 !important; }
+.logo-wrapper:hover .logo-oracle { color: #F80000; opacity: 1 !important; }
+.logo-wrapper:hover .logo-ibm { color: #006699; opacity: 1 !important; }
+.logo-wrapper:hover .logo-databricks { color: #FF3621; opacity: 1 !important; }
+
+/* Center Page Headers (Services & Detail Pages) */
+body:not(.dashboard-page) .page-header {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 160px 0 100px !important; /* Base padding */
+}
+
+@media (max-width: 991px) {
+    body:not(.dashboard-page) .page-header {
+        padding: 100px 0 60px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    body:not(.dashboard-page) .page-header {
+        padding: 80px 20px 40px !important;
+    }
+}
+
+/* Remove decorative line from non-dashboard headers */
+body:not(.dashboard-page) .page-header::before {
+    display: none !important;
+}
+
+body:not(.dashboard-page) .page-header p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Service Details Button Enhancement */
+.btn-details {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+}
+
+.btn-details:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+    background: #1e40af !important; /* Darker blue */
+}
+
+.btn-details span {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-details:hover span {
+    transform: translateX(5px);
 }
