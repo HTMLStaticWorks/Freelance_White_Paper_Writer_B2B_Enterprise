@@ -85,7 +85,7 @@ img {
 
 .industry-img {
     width: 100%;
-    aspect-ratio: 4/5;
+    aspect-ratio: 4/3;
     object-fit: cover;
     transition: var(--transition);
 }
@@ -412,7 +412,7 @@ img {
     justify-content: center;
     gap: 12px;
     width: 100%;
-    padding: 12px;
+    padding: 14px 24px;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.95rem;
@@ -420,6 +420,7 @@ img {
     border: 1px solid var(--border);
     background: var(--surface);
     color: var(--text-primary);
+    cursor: pointer;
 }
 
 .btn-social:hover {
@@ -432,14 +433,30 @@ img {
     height: 20px;
 }
 
-.btn-apple {
-    background: #000000;
-    color: #FFFFFF;
-    border: none;
+/* Auth Page Layout, Form Buttons & Typography Enhancements */
+.auth-container h3 {
+    font-size: 2.2rem !important; /* Increased heading size for a clearer visual hierarchy */
+    font-weight: 800; /* Sleek enterprise bold weight */
+    letter-spacing: -0.025em; /* Modern typography tracking */
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
 }
 
-.btn-apple:hover {
-    background: #1A1A1A !important; color: #FFFFFF !important;
+.auth-container .btn {
+    padding: 14px 24px !important; /* Perfect visual height match with social buttons and inputs */
+    border-radius: 8px !important; /* Standardize with inputs and social buttons */
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .auth-container h3 {
+        font-size: 1.8rem !important;
+    }
 }
 
 .divider {
@@ -895,7 +912,10 @@ textarea.form-control {
 .hero-2 {
     padding: 160px 0 120px;
     position: relative;
-    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 41, 59, 0.92) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
 }
 
 .hero-2::before {
@@ -955,9 +975,21 @@ textarea.form-control {
 }
 
 [data-theme="dark"] .hero,
-[data-theme="dark"] .hero-2,
 [data-theme="dark"] .final-cta {
     background-color: #000000 !important;
+}
+
+[data-theme="dark"] .hero-2 {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.92) 0%, rgba(10, 15, 30, 0.95) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}
+
+@media (max-width: 1024px) {
+    .hero-2, [data-theme="dark"] .hero-2 {
+        background-attachment: scroll !important;
+    }
 }
 
 [data-theme="dark"] .hero h1,
@@ -1615,6 +1647,7 @@ textarea.form-control {
     margin-left: 280px;
     padding: 40px 60px;
     width: calc(100% - 280px);
+    position: relative;
 }
 
 .sidebar-logo {
@@ -1844,12 +1877,41 @@ textarea.form-control {
 
 /* Dashboard Topbar */
 .dashboard-topbar {
+    position: absolute;
+    top: 40px;
+    right: 60px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    z-index: 100;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-topbar {
+        position: fixed;
+        top: 11px;
+        right: 65px;
+        z-index: 1001;
+    }
+    .dashboard-topbar .dashboard-top-actions {
+        gap: 8px !important;
+    }
+    .dashboard-topbar button {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.85rem !important;
+    }
+    .dashboard-topbar .avatar {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Hide RTL and Theme toggle buttons on mobile/tablet viewports inside dashboard */
+    .dashboard-page .theme-toggle,
+    .dashboard-page .rtl-toggle {
+        display: none !important;
+    }
 }
 
 .topbar-profile {
@@ -1952,18 +2014,81 @@ body:not(.dashboard-page) .page-header {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 160px 0 100px !important; /* Base padding */
+    padding: 110px 0 60px !important; /* Reduced base padding to avoid excessive whitespace */
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    color: #FFFFFF !important;
+    overflow: hidden;
+}
+
+/* Elegant Dark Overlay to ensure absolute readability and high-end aesthetic */
+body:not(.dashboard-page) .page-header::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.90) 100%) !important;
+    z-index: 1 !important;
+}
+
+/* Ensure container content sits on top of the overlay */
+body:not(.dashboard-page) .page-header .container {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Ensure text colors are perfectly readable (white/light) */
+body:not(.dashboard-page) .page-header h1,
+body:not(.dashboard-page) .page-header h1.display-4 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+body:not(.dashboard-page) .page-header p,
+body:not(.dashboard-page) .page-header p.lead {
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Page Specific Hero Backgrounds */
+body.services-page .page-header {
+    background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=1600') !important;
+}
+
+body.case-studies-page .page-header {
+    background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1600') !important;
+}
+
+body.portfolio-page .page-header {
+    background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1600') !important;
+}
+
+body.blog-page .page-header {
+    background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=1600') !important;
+}
+
+body.contact-page .page-header {
+    background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600') !important;
+}
+
+/* Detail Pages and Fallback */
+body:not(.services-page):not(.case-studies-page):not(.portfolio-page):not(.blog-page):not(.contact-page):not(.dashboard-page) .page-header {
+    background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=1600') !important;
 }
 
 @media (max-width: 991px) {
     body:not(.dashboard-page) .page-header {
-        padding: 100px 0 60px !important;
+        padding: 90px 0 45px !important;
     }
 }
 
 @media (max-width: 767px) {
     body:not(.dashboard-page) .page-header {
-        padding: 80px 20px 40px !important;
+        padding: 75px 20px 35px !important;
     }
 }
 
