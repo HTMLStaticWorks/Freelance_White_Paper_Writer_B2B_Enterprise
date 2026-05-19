@@ -273,7 +273,6 @@ img {
     gap: 20px;
 }
 
-/* Theme & RTL Toggles */
 .theme-toggle, .rtl-toggle {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -285,9 +284,9 @@ img {
     justify-content: center;
     font-weight: 700;
     font-family: var(--font-body);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     transition: var(--transition);
 }
 
@@ -1645,7 +1644,7 @@ textarea.form-control {
 .dashboard-main-fixed {
     flex: 1;
     margin-left: 280px;
-    padding: 40px 60px;
+    padding: 120px 60px 40px;
     width: calc(100% - 280px);
     position: relative;
 }
