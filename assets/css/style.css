@@ -1906,10 +1906,12 @@ textarea.form-control {
         font-size: 0.85rem !important;
     }
     
-    /* Hide RTL and Theme toggle buttons on mobile/tablet viewports inside dashboard */
-    .dashboard-page .theme-toggle,
-    .dashboard-page .rtl-toggle {
-        display: none !important;
+    /* Hide RTL and Theme toggle buttons only on mobile viewports (under 768px) inside dashboard, keeping them visible on tablets (768px - 1024px) */
+    @media (max-width: 767px) {
+        .dashboard-page .theme-toggle,
+        .dashboard-page .rtl-toggle {
+            display: none !important;
+        }
     }
 }
 
